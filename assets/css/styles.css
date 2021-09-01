@@ -14,6 +14,7 @@
   --hue-color: 360; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
 
   --first-color: hsl(var(--hue-color), 69%, 61%);
+  --first-color-alt: hsl(var(--hue-color), 57%, 53%);
   --title-color: hsl(var(--hue-color), 8%, 15%);
   --text-color: hsl(var(--hue-color), 8%, 45%);
   --header-color: hsl(0, 0%, 96%);
@@ -21,7 +22,7 @@
   --input-color: hsl(var(--hue-color), 70%, 96%);
   --footer-bg-color: #f5f5f5;
   --container-color: #fff;
-  --hover-color: #e05757; /*Red #e05757 - Pink #ff999a - Mint #a1c4cf - Pink 340*/
+  --hover-color: #e05757; /*Red #e05757 - Pink #ff999a - Mint #a1c4cf*/
 
   --header-height: 3rem;
 
@@ -145,11 +146,6 @@ ul {
   list-style: none;
 }
 
-a {
-  text-decoration: none;
-  color: var(--text-gray);
-}
-
 h1 {
   font-size: var(--h1-font-size);
 }
@@ -159,6 +155,7 @@ h3 {
 }
 
 a.btn {
+  color: var(--white);
   border: none;
   border-radius: 2rem;
   padding: 1rem 3rem;
@@ -170,13 +167,14 @@ a.btn {
 span {
   font-family: var(--Abel);
 }
-
+/* -------- note: efecto linea debajo de texto --------*/
 a {
   display: inline-block;
   position: relative;
   color: #333;
   text-decoration: none;
 }
+
 a:after {
   content: "";
   display: block;
@@ -185,11 +183,12 @@ a:after {
   width: 0px;
   transition: all 0.8s;
 }
+
 a:hover:after {
   width: 100%;
   background: #333;
 }
-
+/* ----X---- note: efecto linea debajo de texto ----X---- */
 /* =============x============ BASE GLOBAL =============x============ */
 
 /* ========================= REUSABLE CSS CLASSES ========================= */
@@ -283,6 +282,10 @@ footer .remark {
   display: inline-block;
   padding: 1rem;
   border-radius: 0.5rem;
+  color: var(--white);
+  background-color: var(--hover-color);
+  border: none;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -528,8 +531,9 @@ main .site__title .btn {
 
 main .site__title .btn:hover {
   background: transparent;
-  border: 1px solid var(--white);
+  border: 2px solid var(--white);
   color: var(--white);
+  font-weight: 600;
 }
 /* ------- Gradient Text ------- */
 .gradient-text {
@@ -858,7 +862,51 @@ main .blog__content span {
 /* =============X============ newsletter =============X============ */
 
 /* ========================= contact Me ========================= */
+.contact__container {
+  row-gap: 3rem;
+}
 
+.contact__information {
+  display: flex;
+  margin-bottom: var(--mb-2);
+}
+
+.contact__icon {
+  font-size: 2rem;
+  color: var(--first-color);
+  margin-right: var(--mb-0-75);
+}
+
+.contact__title {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+}
+
+.contact__subtitle {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+
+.contact__content {
+  background-color: var(--input-color);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem 0.25rem;
+}
+
+.contact__label {
+  font-size: var(--smaller-font-size);
+  color: var(--title-color);
+}
+
+.contact__input {
+  width: 100%;
+  background-color: var(--input-color);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  border: none;
+  outline: none;
+}
 /* =============X============ contact Me =============X============ */
 /* =============X============ MAIN CONTENT =============X============ */
 
@@ -990,6 +1038,10 @@ footer.footer .footer__social div i {
 
 @media screen and (min-width: 568px) {
   .about__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact__container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
